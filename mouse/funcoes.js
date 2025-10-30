@@ -8,13 +8,12 @@ let circle = {
     y: canvas.height / 2,
     radius: 30,
     color: 'blue',
-    speed: 5,
+    speed: 1000,
     targetX: canvas.width / 2,
     targetY: canvas.height / 2
 };
 
 function drawCircle() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.beginPath();
     ctx.arc(circle.x, circle.y, circle.radius, 0, Math.PI * 2);
     ctx.fillStyle = circle.color;
@@ -41,7 +40,7 @@ function update() {
     requestAnimationFrame(update);
 }
 
-canvas.addEventListener('click', (event) => {
+canvas.addEventListener('mousemove', (event) => {
     const rect = canvas.getBoundingClientRect();
     circle.targetX = event.clientX - rect.left;
     circle.targetY = event.clientY - rect.top;
