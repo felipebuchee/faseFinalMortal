@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Desenhando no Canva</title>
+</head>
+<body>
+
+    <h1>Aqui está a bandeira simples que você pediu</h1>
+
+    <!-- Canvas fullscreen para animação (fica atrás do conteúdo) -->
+    <canvas id="Canvas" aria-hidden="true"></canvas>
+
+    <!-- Bandeira simples em SVG -->
+    <div class="flag-wrap">
+        <svg class="flag" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bandeira do Brasil">
+            <!-- Fundo verde -->
+            <rect width="100%" height="100%" fill="#006600" />
+
+            <!-- Losango amarelo -->
+            <polygon points="450,70 780,300 450,530 120,300" fill="#FFCC00" />
+
+            <!-- Círculo azul -->
+            <circle cx="450" cy="300" r="120" fill="#002776" />
+
+            <!-- Faixa branca simples (recortada pelo círculo) -->
+            <defs>
+                <clipPath id="clipCircle">
+                    <circle cx="450" cy="300" r="120" />
+                </clipPath>
+            </defs>
+            <g clip-path="url(#clipCircle)">
+                <rect x="150" y="280" width="600" height="60" fill="white" transform="rotate(-20 450 300)" />
+            </g>
+
+            <!-- Algumas estrelas simples (opcionais) -->
+            <g fill="white">
+                <circle cx="420" cy="270" r="4" />
+                <circle cx="470" cy="280" r="4" />
+                <circle cx="440" cy="320" r="4" />
+                <circle cx="480" cy="320" r="3" />
+            </g>
+        </svg>
+    </div>
+
+</body>
+</html>
